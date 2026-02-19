@@ -1,125 +1,139 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
+// Router
 import { useRouter } from "vue-router";
+
+// Services
 import { login } from "@/services/auth";
 
+// Toast
+import { useToast } from "@/components/ui/toast/use-toast";
+
+// UI Components
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
+// Icons
 import { Mail, Lock } from "lucide-vue-next";
 
 // Images
-const heroImage = new URL("@/assets/images/karimun.webp", import.meta.url).href;
+// const heroImage = new URL("@/assets/images/karimun.webp", import.meta.url).href;
+
+const { toast } = useToast();
 
 const router = useRouter();
 
 const email = ref("");
 const password = ref("");
 const remember = ref(false);
-const error = ref("");
+const loading = ref(false);
 
-function handleLogin() {
-  error.value = "";
-
+async function handleLogin() {
   try {
-    const user = login(email.value, password.value);
-    console.log("Login sukses:", user);
+    loading.value = true;
 
-    router.push("/"); // redirect dashboard
+    const user = await login(email.value, password.value);
+
+    toast({
+      title: "Login Berhasil",
+      description: "Selamat datang kembali di Dashboard.",
+      variant: "success",
+    });
+
+    router.push("/");
   } catch (err: any) {
-    error.value = err.message;
+    toast({
+      title: "Login Gagal",
+      description: err.message || "Email atau password salah",
+      variant: "destructive",
+    });
+  } finally {
+    loading.value = false;
   }
 }
 </script>
 
 <template>
-  <div class="min-h-screen grid grid-cols-2">
-    <!-- Left -->
-    <div class="flex items-center justify-center bg-muted p-10">
-      <Card class="w-full max-w-md">
-        <CardContent class="space-y-6 p-6">
-          <div class="text-center space-y-2">
-            <h1 class="text-2xl font-bold">Karimunjawa Travel</h1>
+  <div class="min-h-screen grid grid-cols-1 bg-gray-25">
+    <!-- LEFT SIDE -->
+    <div class="flex items-center justify-center p-6 md:p-10">
+      <Card
+        class="w-full max-w-md rounded-2xl shadow-xl border border-gray-100 bg-white"
+      >
+        <CardContent class="space-y-8 p-8">
+          <!-- Title -->
+          <div class="text-center space-y-3">
+            <h1 class="text-3xl font-bold tracking-tight">
+              Karimunjawa Travel
+            </h1>
             <p class="text-muted-foreground text-sm">
               Welcome back! Please login to your account.
             </p>
           </div>
 
-          <div class="space-y-4">
-            <!-- email -->
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-foreground">
-                Email Address
-              </label>
+          <!-- Form -->
+          <div class="space-y-5">
+            <!-- Email -->
+            <div class="space-y-2">
+              <label class="text-sm font-medium"> Email Address </label>
 
               <div class="relative">
                 <Mail
                   class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
                 />
+
                 <Input
                   v-model="email"
                   type="email"
                   placeholder="admin@karimunjawa.com"
-                  class="pl-10 h-11 rounded-xl"
+                  class="pl-10 h-11 rounded-xl border-gray-200 hover:border-indigo-300 focus:ring-2 focus:ring-indigo-500 transition-all"
                 />
               </div>
             </div>
 
-            <!-- password -->
-            <div class="space-y-1">
-              <label class="text-sm font-medium text-foreground">
-                Password
-              </label>
+            <!-- Password -->
+            <div class="space-y-2">
+              <label class="text-sm font-medium"> Password </label>
+
               <div class="relative">
                 <Lock
                   class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
                 />
+
                 <Input
-                  type="password"
                   v-model="password"
+                  type="password"
                   placeholder="Password"
-                  class="pl-10 h-11 rounded-xl"
+                  class="pl-10 h-11 rounded-xl border-gray-200 hover:border-indigo-300 focus:ring-2 focus:ring-indigo-500 transition-all"
                 />
               </div>
             </div>
 
-            <!-- checkbox -->
+            <!-- Remember -->
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <Checkbox v-model:checked="remember" />
-                <span class="text-sm">Remember me</span>
+                <span class="text-sm text-muted-foreground"> Remember me </span>
               </div>
-              <a class="text-sm text-primary">Forgot Password?</a>
+
+              <a class="text-sm text-indigo-600 hover:underline cursor-pointer">
+                Forgot Password?
+              </a>
             </div>
 
-            <!-- Button Login -->
-            <Button class="w-full" @click="handleLogin">
-              Login to Dashboard →
+            <!-- Login Button -->
+            <Button
+              class="w-full h-11 text-sm font-semibold text-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+              @click="handleLogin"
+            >
+              {{ loading ? "Logging in..." : "Login to Dashboard →" }}
             </Button>
-
-            <p v-if="error" class="text-sm text-destructive text-center">
-              {{ error }}
-            </p>
           </div>
         </CardContent>
       </Card>
-    </div>
-
-    <!-- Right -->
-    <div
-      class="hidden md:flex items-center justify-center bg-cover bg-center text-white p-10"
-      :style="{ backgroundImage: `url(${heroImage})` }"
-    >
-      <!-- <div class="max-w-md space-y-4">
-        <h2 class="text-4xl text-black font-bold">
-          Manage Your Island Business With Ease
-        </h2>
-        <p class="text-black/80">
-          Streamline operations, track bookings, and grow your travel business.
-        </p>
-      </div> -->
     </div>
   </div>
 </template>
