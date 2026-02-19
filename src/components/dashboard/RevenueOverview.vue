@@ -84,9 +84,9 @@ const chartOptions = {
         :key="item.label"
         class="p-4 rounded-xl flex flex-col gap-2"
         :class="{
-          'bg-indigo-50': item.color === 'indigo',
-          'bg-red-50': item.color === 'red',
-          'bg-green-50': item.color === 'green',
+          'bg-indigo-100': item.color === 'indigo',
+          'bg-red-100': item.color === 'red',
+          'bg-green-100': item.color === 'green',
         }"
       >
         <p class="text-sm font-semibold text-gray-500">{{ item.label }}</p>

@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import AppSidebar from "@/components/layout/sidebar.vue";
 import Header from "@/components/layout/Header.vue";
+import Footer from "@/components/layout/Footer.vue";
 
 const isCollapsed = ref(false);
 </script>
@@ -24,5 +25,7 @@ const isCollapsed = ref(false);
     <main class="p-6">
       <router-view />
     </main>
+
+    <Footer />
   </div>
 </template>

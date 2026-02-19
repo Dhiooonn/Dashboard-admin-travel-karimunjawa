@@ -9,6 +9,7 @@ import BookingStatistics from "@/components/dashboard/BookingStatistics.vue";
 import PopulerDestinations from "@/components/dashboard/PopulerDestinations.vue";
 import Bookingcalender from "@/components/dashboard/Bookingcalender.vue";
 import RecentActivity from "@/components/dashboard/RecentActivity.vue";
+import RecentViews from "@/components/dashboard/RecentViews.vue";
 
 // Mapping icon name ke component
 const iconMap: Record<string, any> = {
@@ -58,5 +59,7 @@ const iconMap: Record<string, any> = {
       <Bookingcalender class="col-span-2" />
       <RecentActivity />
     </section>
+
+    <RecentViews />
   </div>
 </template>
