@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
+// Components
 import AppSidebar from "@/components/layout/sidebar.vue";
 import Header from "@/components/layout/Header.vue";
 import Footer from "@/components/layout/Footer.vue";
@@ -17,12 +19,12 @@ const isCollapsed = ref(false);
   <!-- Main Content -->
   <div
     :class="[
-      'min-h-screen transition-all duration-300 p-6 bg-gray-50',
+      'min-h-screen flex flex-col transition-all duration-300 bg-gray-50',
       isCollapsed ? 'ml-20' : 'ml-64',
     ]"
   >
     <Header />
-    <main class="p-6">
+    <main class="flex-1 p-6">
       <router-view />
     </main>
 

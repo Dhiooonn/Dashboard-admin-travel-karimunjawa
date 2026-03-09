@@ -1,12 +1,11 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import Login from "@/pages/Login.vue";
 import Dashboard from "@/pages/Dashboard.vue";
 import Bookings from "@/pages/Bookings.vue";
 import AppLayout from "@/layouts/AppLayout.vue";
-import { title } from "process";
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   // Login route
   {
     path: "/login",

@@ -18,7 +18,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <header class="sticky top-0 z-30 bg-background border-b">
+  <header class="sticky top-0 z-30 bg-white border-b">
     <div class="flex items-center justify-between px-6 py-4">
       <!-- LEFT -->
       <div>

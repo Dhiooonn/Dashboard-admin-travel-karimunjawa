@@ -3,7 +3,7 @@ import { Shield, FileText, HelpCircle } from "lucide-vue-next";
 </script>
 
 <template>
-  <footer class="border-t bg-background px-6 py-4">
+  <footer class="w-full border-t bg-white px-6 py-4 mt-auto">
     <div
       class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground"
     >

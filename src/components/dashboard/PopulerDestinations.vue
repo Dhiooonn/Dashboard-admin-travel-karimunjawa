@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Dummy data
 import dashboardData from "@/data/dashboard.json";
 
 const data = dashboardData.popularDestinations;
@@ -6,10 +7,32 @@ const data = dashboardData.popularDestinations;
 const series = data.data;
 
 const chartOptions = {
-  chart: { type: "donut" },
+  chart: {
+    type: "donut",
+  },
+
   labels: data.labels,
-  legend: { position: "bottom" },
+
   colors: ["#06B6D4", "#8B5CF6", "#F59E0B", "#10B981", "#EC4899"],
+
+  legend: {
+    position: "bottom",
+  },
+
+  states: {
+    hover: {
+      filter: {
+        type: "darken",
+        value: 0.15,
+      },
+    },
+    active: {
+      filter: {
+        type: "darken",
+        value: 0.2,
+      },
+    },
+  },
 };
 </script>
 

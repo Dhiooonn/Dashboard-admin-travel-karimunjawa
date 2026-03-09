@@ -84,15 +84,17 @@ const chartOptions = {
         :key="item.label"
         class="p-4 rounded-xl flex flex-col gap-2"
         :class="{
-          'bg-indigo-100': item.color === 'indigo',
-          'bg-red-100': item.color === 'red',
-          'bg-green-100': item.color === 'green',
+          'bg-indigo-500': item.color === 'indigo',
+          'bg-red-500': item.color === 'red',
+          'bg-green-500': item.color === 'green',
         }"
       >
-        <p class="text-sm font-semibold text-gray-500">{{ item.label }}</p>
+        <p class="text-sm font-semibold text-white">{{ item.label }}</p>
         <div class="flex flex-col gap-1">
-          <h3 class="text-3xl font-bold">${{ item.value.toLocaleString() }}</h3>
-          <p class="text-xs text-gray-400">{{ item.change }} from last month</p>
+          <h3 class="text-3xl font-bold text-white">
+            ${{ item.value.toLocaleString() }}
+          </h3>
+          <p class="text-xs text-white">{{ item.change }} from last month</p>
         </div>
       </div>
     </div>

@@ -36,14 +36,14 @@ const chartOptions = {
         :key="item.label"
         class="p-4 rounded-xl"
         :class="{
-          'bg-green-50': item.color === 'green',
-          'bg-yellow-50': item.color === 'yellow',
-          'bg-red-50': item.color === 'red',
+          'bg-green-500': item.color === 'green',
+          'bg-yellow-500': item.color === 'yellow',
+          'bg-red-500': item.color === 'red',
         }"
       >
-        <p class="text-sm font-medium">{{ item.label }}</p>
-        <h3 class="text-2xl font-bold">{{ item.value }}</h3>
-        <p class="text-xs text-gray-500">{{ item.subtitle }}</p>
+        <p class="text-sm font-medium text-white">{{ item.label }}</p>
+        <h3 class="text-2xl font-bold text-white">{{ item.value }}</h3>
+        <p class="text-xs text-white">{{ item.subtitle }}</p>
       </div>
     </div>
 
