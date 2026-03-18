@@ -1,6 +1,8 @@
 <script setup lang="ts">
+// data dummy
 import dashboardData from "@/data/dashboard.json";
 
+// ui components
 import {
   Card,
   CardHeader,
@@ -8,7 +10,6 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 

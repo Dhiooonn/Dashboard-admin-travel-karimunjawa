@@ -46,8 +46,8 @@ const systemMenus = [
 <template>
   <aside
     :class="[
-      'fixed top-0 left-0 bg-white border-r h-screen flex flex-col transition-all duration-300 z-40',
-      props.collapsed ? 'w-20' : 'w-64',
+      'fixed top-0 left-0 bg-white border-r h-screen flex flex-col transition-all duration-300 z-50',
+      props.collapsed ? '-translate-x-full md:translate-x-0 md:w-20' : 'translate-x-0 w-64',
     ]"
   >
     <!-- header -->
@@ -59,7 +59,7 @@ const systemMenus = [
 
       <button
         @click="toggleSidebar"
-        class="p-2 rounded-lg hover:bg-gray-100 transition"
+        class="p-2 rounded-lg hover:bg-gray-100 transition hidden md:block"
       >
         <component
           :is="props.collapsed ? ChevronRight : ChevronLeft"

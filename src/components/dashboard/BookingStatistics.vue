@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import dashboardData from "@/data/dashboard.json";
+import cardPattern from "@/assets/patterns/card-pattern.svg";
 
 const summary = dashboardData.bookingStatistics.summary;
 const chart = dashboardData.bookingStatistics.chart;
@@ -30,20 +31,29 @@ const chartOptions = {
     </div>
 
     <!-- Summary Cards -->
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div
         v-for="item in summary"
         :key="item.label"
-        class="p-4 rounded-xl"
+        class="relative overflow-hidden p-4 rounded-xl"
         :class="{
           'bg-green-500': item.color === 'green',
           'bg-yellow-500': item.color === 'yellow',
           'bg-red-500': item.color === 'red',
         }"
       >
-        <p class="text-sm font-medium text-white">{{ item.label }}</p>
-        <h3 class="text-2xl font-bold text-white">{{ item.value }}</h3>
-        <p class="text-xs text-white">{{ item.subtitle }}</p>
+        <!-- Background Pattern (Flipped horizontally for visual variety) -->
+        <img 
+          :src="cardPattern" 
+          alt="" 
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none transform -scale-x-100"
+        />
+
+        <div class="relative z-10 flex flex-col gap-1">
+          <p class="text-[11px] lg:text-sm font-medium text-white opacity-90">{{ item.label }}</p>
+          <h3 class="text-xl lg:text-2xl font-bold text-white">{{ item.value }}</h3>
+          <p class="text-[10px] lg:text-xs text-white opacity-80">{{ item.subtitle }}</p>
+        </div>
       </div>
     </div>
 

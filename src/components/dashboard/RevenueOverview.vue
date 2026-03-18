@@ -1,5 +1,10 @@
 <script setup lang="ts">
+
+// data dummy
 import dashboardData from "@/data/dashboard.json";
+
+// pattern
+import cardPattern from "@/assets/patterns/card-pattern.svg";
 
 const summary = dashboardData.revenueOverview.summary;
 const chartData = dashboardData.revenueOverview.chart;
@@ -78,23 +83,33 @@ const chartOptions = {
     </div>
 
     <!-- Summary Cards -->
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div
         v-for="item in summary"
         :key="item.label"
-        class="p-4 rounded-xl flex flex-col gap-2"
+        class="relative overflow-hidden p-4 rounded-xl flex flex-col gap-2 shadow-sm"
         :class="{
           'bg-indigo-500': item.color === 'indigo',
           'bg-red-500': item.color === 'red',
           'bg-green-500': item.color === 'green',
         }"
       >
-        <p class="text-sm font-semibold text-white">{{ item.label }}</p>
-        <div class="flex flex-col gap-1">
-          <h3 class="text-3xl font-bold text-white">
-            ${{ item.value.toLocaleString() }}
-          </h3>
-          <p class="text-xs text-white">{{ item.change }} from last month</p>
+        <!-- Background Pattern Layer -->
+        <img 
+          :src="cardPattern" 
+          alt="" 
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        />
+
+        <!-- Content Layer -->
+        <div class="relative z-10 flex flex-col gap-2 w-full h-full">
+          <p class="text-sm font-semibold text-white">{{ item.label }}</p>
+          <div class="flex flex-col gap-1">
+            <h3 class="text-2xl lg:text-3xl font-bold text-white">
+              ${{ item.value.toLocaleString() }}
+            </h3>
+            <p class="text-[10px] lg:text-xs text-white opacity-90">{{ item.change }} from last month</p>
+          </div>
         </div>
       </div>
     </div>

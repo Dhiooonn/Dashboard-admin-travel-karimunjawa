@@ -10,10 +10,10 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
+// icons
 import { Star, Clock } from "lucide-vue-next";
 
 const reviews = dashboardData.recentReviews;
@@ -47,29 +47,33 @@ const reviews = dashboardData.recentReviews;
         :key="item.name"
         class="group p-4 rounded-xl border border-gray-100 bg-white hover:border-primary/30 hover:shadow-sm transition-all duration-300"
       >
-        <div class="flex justify-between items-start mb-3">
-          <div class="flex gap-3 items-center">
-            <Avatar class="w-10 h-10 border-2 border-primary/10">
-              <AvatarFallback class="bg-primary/5 text-primary font-semibold">
+        <div class="flex justify-between items-start mb-3 gap-2">
+          <div class="flex gap-3 items-start sm:items-center min-w-0">
+            <Avatar
+              class="w-9 h-9 sm:w-10 sm:h-10 border-2 border-primary/10 shrink-0 mt-0.5 sm:mt-0"
+            >
+              <AvatarFallback
+                class="bg-primary/5 text-primary font-semibold text-sm"
+              >
                 {{ item.name.charAt(0) }}
               </AvatarFallback>
             </Avatar>
 
-            <div class="space-y-1">
-              <p class="font-semibold text-sm text-gray-900">
+            <div class="space-y-1.5 min-w-0">
+              <p class="font-semibold text-sm text-gray-900 truncate">
                 {{ item.name }}
               </p>
-              <div class="flex items-center gap-2">
+              <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span
-                  class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-primary/10 text-primary"
+                  class="text-[9px] sm:text-[10px] font-medium px-1.5 sm:px-2 py-0.5 rounded-md bg-primary/10 text-primary whitespace-nowrap"
                 >
                   {{ item.package }}
                 </span>
-                <div class="flex gap-0.5">
+                <div class="flex gap-0.5 shrink-0">
                   <Star
                     v-for="i in 5"
                     :key="i"
-                    class="w-3 h-3"
+                    class="w-2.5 h-2.5 sm:w-3 sm:h-3"
                     :class="
                       i <= item.rating
                         ? 'text-yellow-400 fill-yellow-400'
@@ -82,9 +86,9 @@ const reviews = dashboardData.recentReviews;
           </div>
 
           <div
-            class="flex items-center gap-1.5 text-[11px] text-muted-foreground bg-gray-50 px-2 py-1 rounded-md border border-gray-100"
+            class="flex items-center shrink-0 gap-1 sm:gap-1.5 text-[9px] sm:text-[11px] text-muted-foreground bg-gray-50 px-1.5 sm:px-2 py-1 rounded-md border border-gray-100"
           >
-            <Clock class="w-3 h-3" />
+            <Clock class="w-3 h-3 hidden sm:block" />
             <span>{{ item.time }}</span>
           </div>
         </div>

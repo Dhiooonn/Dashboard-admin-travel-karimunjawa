@@ -1,6 +1,8 @@
 <script setup lang="ts">
+// data dummy
 import dashboardData from "@/data/dashboard.json";
 
+// ui components
 import {
   Card,
   CardHeader,
@@ -8,9 +10,9 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
 
+// icons
 import { CheckCircle, CreditCard, XCircle, Star, Clock } from "lucide-vue-next";
 
 const activities = dashboardData.recentActivity;

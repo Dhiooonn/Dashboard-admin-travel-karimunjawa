@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 // Dummy data
 import dashboardData from "@/data/dashboard.json";
 

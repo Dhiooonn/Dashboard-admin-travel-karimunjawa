@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { Search, Bell, Plus } from "lucide-vue-next";
+import { Search, Bell, Plus, Menu } from "lucide-vue-next";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,25 +15,42 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const route = useRoute();
+const emit = defineEmits(["toggle-sidebar"]);
 </script>
 
 <template>
   <header class="sticky top-0 z-30 bg-white border-b">
-    <div class="flex items-center justify-between px-6 py-4">
+    <div
+      class="flex items-center justify-between px-3 py-3 md:px-6 md:py-4 gap-2"
+    >
       <!-- LEFT -->
-      <div>
-        <h1 class="text-2xl font-semibold tracking-tight">
-          {{ route.meta.title }}
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          {{ route.meta.subtitle }}
-        </p>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Mobile Sidebar Toggle -->
+        <Button
+          variant="ghost"
+          size="icon"
+          class="md:hidden shrink-0 h-9 w-9"
+          @click="emit('toggle-sidebar')"
+        >
+          <Menu class="w-5 h-5 text-gray-700" />
+        </Button>
+
+        <div class="min-w-0">
+          <h1
+            class="text-base sm:text-lg lg:text-2xl font-bold tracking-tight truncate leading-tight"
+          >
+            {{ route.meta.title }}
+          </h1>
+          <p class="hidden md:block text-sm text-muted-foreground truncate">
+            {{ route.meta.subtitle }}
+          </p>
+        </div>
       </div>
 
       <!-- RIGHT -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-1 sm:gap-4 shrink-0">
         <!-- Search -->
-        <div class="relative w-72">
+        <div class="relative hidden sm:block w-36 lg:w-72">
           <Search
             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"
           />
@@ -59,16 +76,19 @@ const route = useRoute();
         </DropdownMenu>
 
         <!-- New Button -->
-        <Button class="gap-2">
+        <Button class="gap-1.5 sm:gap-2 px-2 lg:px-4 h-9">
           <Plus class="w-4 h-4" />
-          New
+          <span class="hidden lg:inline">New</span>
         </Button>
 
         <!-- Profile -->
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
-            <Button variant="ghost" class="p-0">
-              <Avatar class="h-9 w-9">
+            <Button
+              variant="ghost"
+              class="p-0 h-9 w-9 rounded-full ml-1 sm:ml-0"
+            >
+              <Avatar class="h-8 w-8 sm:h-9 sm:w-9">
                 <AvatarFallback>AU</AvatarFallback>
               </Avatar>
             </Button>
