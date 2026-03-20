@@ -16,10 +16,10 @@
 
 ## ✨ Fitur Utama (Key Features)
 
-- **📱 Responsivitas Sempurna (Fully Responsive)**: Tampilan secara mulus beradaptasi mulai dari layar Desktop (Grid penuh), Tablet (*Auto-collapse Sidebar* & penyesuaian teks), hingga layar *Mobile* sekecil 320px (Menu *Off-canvas Hamburgers* dengan *overlay* gelap).
+- **📱 Responsivitas Sempurna (Fully Responsive)**: Tampilan secara mulus beradaptasi mulai dari layar Desktop (Grid penuh), Tablet (_Auto-collapse Sidebar_ & penyesuaian teks), hingga layar _Mobile_ sekecil 320px (Menu _Off-canvas Hamburgers_ dengan _overlay_ gelap).
 - **📊 Visualisasi Data Interaktif**: Terintegrasi penuh dengan `ApexCharts` untuk area Revenue dan Booking bar-charts.
-- **🎨 Glassmorphism & SVG Patterns**: Estetika modern tingkat lanjut dengan SVG blobs transparan pada berbagai kartu rangkuman dan elemen aksi cepat *(Quick Actions)*.
-- **⚡ Super Cepat**: Menggunakan bundler **Vite** yang menjamin pengalaman perancangan dengan *Hot Module Replacement* (HMR) setara instan.
+- **🎨 Glassmorphism & SVG Patterns**: Estetika modern tingkat lanjut dengan SVG blobs transparan pada berbagai kartu rangkuman dan elemen aksi cepat _(Quick Actions)_.
+- **⚡ Super Cepat**: Menggunakan bundler **Vite** yang menjamin pengalaman perancangan dengan _Hot Module Replacement_ (HMR) setara instan.
 - **📁 Data Abstrak Tersentral**: Semua data pratinjau grafik ditarik rapi dari `/src/data/dashboard.json` yang memudahkan transisi integrasi menuju API Backend kelak.
 
 ---
@@ -36,13 +36,13 @@
 
 ---
 
-## 📂 Struktur Direktori (*Code Architecture*)
+## 📂 Struktur Direktori (_Code Architecture_)
 
 ```text
 Dashboard-karimunjawa-travel/
 ├── src/
 │   ├── assets/           # Pola SVG dekoratif (welcome-pattern.svg, card-pattern.svg)
-│   ├── components/       
+│   ├── components/
 │   │   ├── dashboard/    # Widget utama dashboard (RevenueOverview, RecentViews, dll.)
 │   │   ├── layout/       # Tata letak pembungkus dasar (Header, Sidebar, Footer)
 │   │   └── ui/           # Komponen UI Dasar Shadcn (Button, Card, Avatar, Input)
@@ -59,26 +59,34 @@ Dashboard-karimunjawa-travel/
 
 ---
 
-## 🚀 Panduan Memulai (*Quick Start*)
+## 🚀 Panduan Memulai (_Quick Start_)
 
 ### Prasyarat
+
 Pastikan mesin Anda telah terpasang **[Node.js](https://nodejs.org/)** versi `18+` karena integrasi Vite membutuhkan runtime Node terbaru.
 
 ### 1. Instalasi Node Modules
+
 Lakukan kloning dari Repositori ini dan instal semua depensi yang dibutuhkan menggunakan NPM:
+
 ```bash
 npm install
 ```
 
-### 2. Jalankan Mode *Development*
-Sistem *Hot Module Replacement* Vite akan langsung menjalankan proyek.
+### 2. Jalankan Mode _Development_
+
+Sistem _Hot Module Replacement_ Vite akan langsung menjalankan proyek.
+
 ```bash
 npm run dev
 ```
+
 > Bukalah URL di browser (biasanya `http://localhost:5173`). Setiap kali Anda mengubah file kode `.vue`, hasilnya akan dikompilasi ulang dan muncul di layar seketika!
 
 ### 3. Kompilasi Produksi (Production Build)
-Untuk mempersiapkan peluncuran aplikasi (*Deployment*) dengan performa yang maksimal, terhindar dari peringatan ekstensi pihak ketiga, serta lulus audit performa **Lighthouse 90+**:
+
+Untuk mempersiapkan peluncuran aplikasi (_Deployment_) dengan performa yang maksimal, terhindar dari peringatan ekstensi pihak ketiga, serta lulus audit performa **Lighthouse 90+**:
+
 ```bash
 # Melakukan proses Type-check & Build kode Vue menjadi aset optimal
 npm run build
@@ -91,9 +99,10 @@ npm run preview
 
 ## 👨‍💻 Kontribusi
 
-Proyek ini dibangun menggunakan disiplin penulisan *Mobile-First*. Apabila ingin melakukan iterasi modifikasi terhadap antarmuka (UI):
-1. **Utamakan `flex-wrap`, `shrink-0` dan `min-w-0`** saat menggabungkan elemen `flex` agar tidak hancur (*squishing/overflow*) sewaktu dibuka di HP.
-2. Saat bekerja dengan SVG patterns, disarankan menggunakan tag `<img>` dengan kelas yang bertugas meletakkan posisi secara *absolut* seperti halnya pada komponen `RevenueOverview.vue`, dan bukan sebagai `background-image` CSS *(untuk kompatibilitas Vite path resolution)*.
-3. Seluruh *Margin* tata-letak responsif dari `Sidebar` berada di dalam `<main>` komponen sentral `/src/layouts/AppLayout.vue`.
+Proyek ini dibangun menggunakan disiplin penulisan _Mobile-First_. Apabila ingin melakukan iterasi modifikasi terhadap antarmuka (UI):
 
-> **Note:** Pengaturan Sidebar telah ditingkatkan untuk menggunakan sifat otomatis menciut (*Auto-collapse -> w-20*) secara cerdas ketika sistem mendeteksi akses layar beralih ke dimensi perangkat Tablet (`md / <1024px`) dan hilang (`-translate-x-full`) di HP.
+1. **Utamakan `flex-wrap`, `shrink-0` dan `min-w-0`** saat menggabungkan elemen `flex` agar tidak hancur (_squishing/overflow_) sewaktu dibuka di HP.
+2. Saat bekerja dengan SVG patterns, disarankan menggunakan tag `<img>` dengan kelas yang bertugas meletakkan posisi secara _absolut_ seperti halnya pada komponen `RevenueOverview.vue`, dan bukan sebagai `background-image` CSS _(untuk kompatibilitas Vite path resolution)_.
+3. Seluruh _Margin_ tata-letak responsif dari `Sidebar` berada di dalam `<main>` komponen sentral `/src/layouts/AppLayout.vue`.
+
+> **Note:** Pengaturan Sidebar telah ditingkatkan untuk menggunakan sifat otomatis menciut (_Auto-collapse -> w-20_) secara cerdas ketika sistem mendeteksi akses layar beralih ke dimensi perangkat Tablet (`md / <1024px`) dan hilang (`-translate-x-full`) di HP.

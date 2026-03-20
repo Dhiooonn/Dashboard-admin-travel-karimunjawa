@@ -6,27 +6,38 @@ import Bookings from "@/pages/Bookings.vue";
 import AppLayout from "@/layouts/AppLayout.vue";
 
 const routes: Array<RouteRecordRaw> = [
+  // Root redirect
+  {
+    path: "/",
+    redirect: "/login",
+  },
   // Login route
   {
     path: "/login",
     component: Login,
   },
+  // Dashboard route
   {
-    path: "/",
+    path: "/dashboard",
     component: AppLayout,
     children: [
-      // Dashboard route
       {
-        path: "",
+        path: "/dashboard",
         component: Dashboard,
         meta: {
           title: "Dashboard Overview",
           subtitle: "Monitor your business performance at a glance",
         },
       },
-      // Bookings route
+    ],
+  },
+  // Bookings route
+  {
+    path: "/bookings",
+    component: AppLayout,
+    children: [
       {
-        path: "/bookings",
+        path: "",
         component: Bookings,
         meta: {
           title: "Manage Bookings",

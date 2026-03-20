@@ -13,6 +13,11 @@ import {
   ChevronRight,
 } from "lucide-vue-next";
 
+const logoImage = new URL(
+  "@/assets/images/karimunjawa-logo.png",
+  import.meta.url,
+).href;
+
 //
 const props = defineProps<{
   collapsed: boolean;
@@ -29,7 +34,7 @@ const router = useRouter();
 
 // Menu Data
 const mainMenus = [
-  { name: "Dashboard", route: "/", icon: LayoutDashboard },
+  { name: "Dashboard", route: "/dashboard", icon: LayoutDashboard },
   { name: "Bookings", route: "/bookings", icon: Calendar, badge: 12 },
   { name: "Customers", route: "/customers", icon: Users },
   { name: "Destinations", route: "/destinations", icon: MapPin },
@@ -47,14 +52,23 @@ const systemMenus = [
   <aside
     :class="[
       'fixed top-0 left-0 bg-white border-r h-screen flex flex-col transition-all duration-300 z-50',
-      props.collapsed ? '-translate-x-full md:translate-x-0 md:w-20' : 'translate-x-0 w-64',
+      props.collapsed
+        ? '-translate-x-full md:translate-x-0 md:w-20'
+        : 'translate-x-0 w-64',
     ]"
   >
     <!-- header -->
-    <div class="p-4 border-b flex items-center justify-between">
-      <div v-if="!props.collapsed">
-        <h1 class="text-xl font-bold">Karimunjawa</h1>
-        <p class="text-xs text-gray-400">Travel Admin</p>
+    <div class="p-4 border-b flex items-center justify-between h-[72px]">
+      <div v-if="!props.collapsed" class="flex items-center gap-3 w-full">
+        <img
+          :src="logoImage"
+          alt="Karimunjawa Logo"
+          class="h-10 w-auto object-contain shrink-0"
+        />
+        <div class="overflow-hidden">
+          <h1 class="text-lg font-bold text-gray-900 truncate">Karimunjawa</h1>
+          <p class="text-[11px] text-gray-500 font-medium">Travel Admin</p>
+        </div>
       </div>
 
       <button
