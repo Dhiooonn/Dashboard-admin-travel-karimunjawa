@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "total": 7,
+    "confirmed": 3,
+    "pending": 2,
+    "completed": 2
+  },
+  "bookings": [
+    {
+      "id": "BK001",
+      "customer": {
+        "name": "Sarah Johnson",
+        "email": "sarah.j@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=1"
+      },
+      "destination": "Karimunjawa Islands Resort",
+      "checkIn": "2026-03-01",
+      "checkOut": "2026-03-05",
+      "guests": 2,
+      "amount": 2450,
+      "status": "confirmed"
+    },
+    {
+      "id": "BK002",
+      "customer": {
+        "name": "Michael Chen",
+        "email": "mchen@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=2"
+      },
+      "destination": "Snorkeling Adventure Package",
+      "checkIn": "2026-02-25",
+      "checkOut": "2026-02-28",
+      "guests": 4,
+      "amount": 1890,
+      "status": "pending"
+    },
+    {
+      "id": "BK003",
+      "customer": {
+        "name": "Emily Davis",
+        "email": "emily.davis@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=3"
+      },
+      "destination": "Beach Resort Deluxe",
+      "checkIn": "2026-02-18",
+      "checkOut": "2026-02-22",
+      "guests": 2,
+      "amount": 3200,
+      "status": "completed"
+    },
+    {
+      "id": "BK004",
+      "customer": {
+        "name": "James Wilson",
+        "email": "j.wilson@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=4"
+      },
+      "destination": "Island Hopping Tour",
+      "checkIn": "2026-03-10",
+      "checkOut": "2026-03-12",
+      "guests": 3,
+      "amount": 1500,
+      "status": "confirmed"
+    },
+    {
+      "id": "BK005",
+      "customer": {
+        "name": "Maria Garcia",
+        "email": "mariag@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=5"
+      },
+      "destination": "Romantic Sunset Cruise",
+      "checkIn": "2026-03-15",
+      "checkOut": "2026-03-16",
+      "guests": 2,
+      "amount": 850,
+      "status": "pending"
+    },
+    {
+      "id": "BK006",
+      "customer": {
+        "name": "David Lee",
+        "email": "d.lee@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=6"
+      },
+      "destination": "Diving Expedition",
+      "checkIn": "2026-04-01",
+      "checkOut": "2026-04-05",
+      "guests": 1,
+      "amount": 2100,
+      "status": "confirmed"
+    },
+    {
+      "id": "BK007",
+      "customer": {
+        "name": "Anna Smith",
+        "email": "anna.smith@email.com",
+        "avatar": "https://i.pravatar.cc/100?img=7"
+      },
+      "destination": "Family Beach Villa",
+      "checkIn": "2026-01-10",
+      "checkOut": "2026-01-15",
+      "guests": 5,
+      "amount": 4500,
+      "status": "completed"
+    }
+  ]
+}
