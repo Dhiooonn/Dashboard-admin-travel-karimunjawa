@@ -17,10 +17,13 @@
 ## ✨ Fitur Utama (Key Features)
 
 - **📱 Responsivitas Sempurna (Fully Responsive)**: Tampilan secara mulus beradaptasi mulai dari layar Desktop (Grid penuh), Tablet (_Auto-collapse Sidebar_ & penyesuaian teks), hingga layar _Mobile_ sekecil 320px (Menu _Off-canvas Hamburgers_ dengan _overlay_ gelap).
+- **🗂️ Modul Booking & Reservasi**: Tabel pengelolaan pesanan atraktif lengkap dengan integrasi State Management reaktif, modal Edit/Add Booking, dan filter status presisi.
+- **👥 Manajemen Pelanggan (Customers)**: Arsitektur _Smart & Dumb Components_ untuk merangkum data pengguna, dilengkapi filter "VIP/Active/Inactive" dan Dropdown responsif.
+- **🗺️ Grid Card Destinasi (Destinations)**: Katalog destinasi travel berdesain ultra-modern ("Floating Image" aesthetic) menggunakan `shadcn-vue` Card, mendukung fungsionalitas CRUD secara _real-time_.
 - **📊 Visualisasi Data Interaktif**: Terintegrasi penuh dengan `ApexCharts` untuk area Revenue dan Booking bar-charts.
 - **🎨 Glassmorphism & SVG Patterns**: Estetika modern tingkat lanjut dengan SVG blobs transparan pada berbagai kartu rangkuman dan elemen aksi cepat _(Quick Actions)_.
 - **⚡ Super Cepat**: Menggunakan bundler **Vite** yang menjamin pengalaman perancangan dengan _Hot Module Replacement_ (HMR) setara instan.
-- **📁 Data Abstrak Tersentral**: Semua data pratinjau grafik ditarik rapi dari `/src/data/dashboard.json` yang memudahkan transisi integrasi menuju API Backend kelak.
+- **📁 Mock Data Tersentral**: Seluruh operasi CRUD client-side direpresentasikan melalui file JSON struktur tinggi di `/src/data/` sebagai iterasi sebelum memyambungkan REST API Backend sesungguhnya.
 
 ---
 
@@ -43,12 +46,15 @@ Dashboard-karimunjawa-travel/
 ├── src/
 │   ├── assets/           # Pola SVG dekoratif (welcome-pattern.svg, card-pattern.svg)
 │   ├── components/
+│   │   ├── bookings/     # Komponen CRUD untuk manajemen riwayat pemesanan tiket/hotel
+│   │   ├── Customers/    # Modul pengelola database pelanggan & analitik user
 │   │   ├── dashboard/    # Widget utama dashboard (RevenueOverview, RecentViews, dll.)
+│   │   ├── Destinations/ # Komponen UI Card Grid estetis untuk Katalog Paket Travel
 │   │   ├── layout/       # Tata letak pembungkus dasar (Header, Sidebar, Footer)
 │   │   └── ui/           # Komponen UI Dasar Shadcn (Button, Card, Avatar, Input)
-│   ├── data/             # File Mock JSON (dashboard.json)
+│   ├── data/             # File Mock JSON (dashboard.json, bookings.json, dll.)
 │   ├── layouts/          # Struktur kerangka aplikasi (AppLayout.vue)
-│   ├── pages/            # Halaman tingkat rute (Dashboard, Login, Bookings)
+│   ├── pages/            # Halaman navigasi aplikasi (Dashboard, Bookings, Customers, Destinations)
 │   ├── router/           # Konfigurasi Vue Router & penjagaan rute (Routes config)
 │   └── lib/              # Skrip pendukung, modul Typescript, & utilitas (utils.ts)
 ├── public/               # Aset statis publik (favicon, dsj)

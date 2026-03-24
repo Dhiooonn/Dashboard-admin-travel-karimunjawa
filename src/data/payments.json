@@ -1,0 +1,49 @@
+{
+  "payments": [
+    {
+      "id": "TXN-2026-001",
+      "customer": "Sarah Johnson",
+      "bookingId": "BK001",
+      "amount": 2450,
+      "method": "Credit Card",
+      "date": "2026-02-15",
+      "status": "Completed"
+    },
+    {
+      "id": "TXN-2026-002",
+      "customer": "Emily Davis",
+      "bookingId": "BK003",
+      "amount": 3200,
+      "method": "Bank Transfer",
+      "date": "2026-02-14",
+      "status": "Completed"
+    },
+    {
+      "id": "TXN-2026-003",
+      "customer": "Michael Brown",
+      "bookingId": "BK005",
+      "amount": 1500,
+      "method": "PayPal",
+      "date": "2026-02-14",
+      "status": "Pending"
+    },
+    {
+      "id": "TXN-2026-004",
+      "customer": "Jessica White",
+      "bookingId": "BK008",
+      "amount": 850,
+      "method": "Credit Card",
+      "date": "2026-02-12",
+      "status": "Refunded"
+    },
+    {
+      "id": "TXN-2026-005",
+      "customer": "David Wilson",
+      "bookingId": "BK012",
+      "amount": 450,
+      "method": "Bank Transfer",
+      "date": "2026-02-11",
+      "status": "Completed"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "stats": {
+    "total": 5,
+    "active": 5,
+    "totalBookings": 1094,
+    "avgRating": 4.8
+  },
+  "destinations": [
+    {
+      "id": "DST001",
+      "title": "Karimunjawa Islands Resort",
+      "description": "Luxury beach resort with stunning ocean views",
+      "category": "Resort",
+      "rating": 4.8,
+      "duration": "4 Days 3 Nights",
+      "maxGuests": 50,
+      "price": 1225,
+      "bookings": 380,
+      "image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "status": "active"
+    },
+    {
+      "id": "DST002",
+      "title": "Snorkeling Adventure Package",
+      "description": "Explore the underwater beauty of Karimunjawa",
+      "category": "Activity",
+      "rating": 4.6,
+      "duration": "1 Day",
+      "maxGuests": 30,
+      "price": 472,
+      "bookings": 245,
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "status": "active"
+    },
+    {
+      "id": "DST003",
+      "title": "Beach Resort Deluxe",
+      "description": "Premium beachfront accommodation",
+      "category": "Resort",
+      "rating": 4.9,
+      "duration": "5 Days 4 Nights",
+      "maxGuests": 40,
+      "price": 1600,
+      "bookings": 189,
+      "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "status": "active"
+    },
+    {
+      "id": "DST004",
+      "title": "Island Hopping Tour",
+      "description": "Visit 5 beautiful islands in Karimunjawa archipelago",
+      "category": "Tour",
+      "rating": 4.7,
+      "duration": "2 Days 1 Night",
+      "maxGuests": 20,
+      "price": 850,
+      "bookings": 150,
+      "image": "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "status": "active"
+    },
+    {
+      "id": "DST005",
+      "title": "Diving Expedition",
+      "description": "Deep sea diving with professional instructors",
+      "category": "Activity",
+      "rating": 4.9,
+      "duration": "1 Day",
+      "maxGuests": 15,
+      "price": 600,
+      "bookings": 130,
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "status": "active"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "summary": {
+    "total": 5,
+    "active": 3,
+    "vip": 2
+  },
+  "customers": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "email": "sarah.j@email.com",
+      "phone": "+1 234 567 8901",
+      "location": "New York, USA",
+      "bookings": 5,
+      "totalSpent": 12450,
+      "status": "vip",
+      "joined": "2025-01-15",
+      "avatar": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "email": "mchen@email.com",
+      "phone": "+1 234 567 8902",
+      "location": "San Francisco, USA",
+      "bookings": 3,
+      "totalSpent": 5670,
+      "status": "active",
+      "joined": "2025-02-10",
+      "avatar": "https://i.pravatar.cc/150?img=2"
+    },
+    {
+      "id": 3,
+      "name": "Emily Davis",
+      "email": "emily.davis@email.com",
+      "phone": "+1 234 567 8903",
+      "location": "Los Angeles, USA",
+      "bookings": 8,
+      "totalSpent": 25600,
+      "status": "vip",
+      "joined": "2024-12-05",
+      "avatar": "https://i.pravatar.cc/150?img=3"
+    }
+  ]
+}

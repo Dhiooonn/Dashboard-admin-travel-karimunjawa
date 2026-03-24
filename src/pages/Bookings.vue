@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import data from "@/data/bookings.json";
-import BookingStats from "@/components/Bookings/BookingStats.vue";
-import BookingTable from "@/components/Bookings/BookingTable.vue";
+import BookingStats from "@/components/bookings/BookingStats.vue";
+import BookingTable from "@/components/bookings/BookingTable.vue";
 
 // UI Components
-import BookingFormSheet from "@/components/Bookings/BookingFormSheet.vue";
-import BookingDetailDialog from "@/components/Bookings/BookingDetailDialog.vue";
-import BookingDeleteAlert from "@/components/Bookings/BookingDeleteAlert.vue";
+import BookingFormSheet from "@/components/bookings/BookingFormSheet.vue";
+import BookingDetailDialog from "@/components/bookings/BookingDetailDialog.vue";
+import BookingDeleteAlert from "@/components/bookings/BookingDeleteAlert.vue";
 
 // Single Source of Truth for Data
 const bookings = ref([...data.bookings]);
@@ -16,10 +16,10 @@ const bookings = ref([...data.bookings]);
 const stats = computed(() => {
   return {
     total: bookings.value.length,
-    confirmed: bookings.value.filter(b => b.status === 'confirmed').length,
-    pending: bookings.value.filter(b => b.status === 'pending').length,
-    completed: bookings.value.filter(b => b.status === 'completed').length,
-  }
+    confirmed: bookings.value.filter((b) => b.status === "confirmed").length,
+    pending: bookings.value.filter((b) => b.status === "pending").length,
+    completed: bookings.value.filter((b) => b.status === "completed").length,
+  };
 });
 
 // Modals State Management
@@ -36,15 +36,15 @@ function handleAdd() {
   selectedBooking.value = null;
   isEditing.value = false;
   activeFormData.value = {
-    id: `BK${String(bookings.value.length + 1).padStart(3, '0')}`,
-    customerName: '',
-    customerEmail: '',
-    destination: '',
-    checkIn: '',
-    checkOut: '',
+    id: `BK${String(bookings.value.length + 1).padStart(3, "0")}`,
+    customerName: "",
+    customerEmail: "",
+    destination: "",
+    checkIn: "",
+    checkOut: "",
     guests: 1,
     amount: 0,
-    status: 'pending'
+    status: "pending",
   };
   showFormSheet.value = true;
 }
@@ -61,7 +61,7 @@ function handleEdit(booking: any) {
     checkOut: booking.checkOut,
     guests: booking.guests,
     amount: booking.amount,
-    status: booking.status
+    status: booking.status,
   };
   showFormSheet.value = true;
 }
@@ -69,7 +69,7 @@ function handleEdit(booking: any) {
 function handleFormSubmit(formData: any) {
   if (isEditing.value) {
     // Update existing
-    const index = bookings.value.findIndex(b => b.id === formData.id);
+    const index = bookings.value.findIndex((b) => b.id === formData.id);
     if (index !== -1) {
       bookings.value[index] = {
         ...bookings.value[index],
@@ -83,7 +83,7 @@ function handleFormSubmit(formData: any) {
         checkOut: formData.checkOut,
         guests: formData.guests,
         amount: formData.amount,
-        status: formData.status
+        status: formData.status,
       };
     }
   } else {
@@ -93,14 +93,14 @@ function handleFormSubmit(formData: any) {
       customer: {
         name: formData.customerName,
         email: formData.customerEmail,
-        avatar: `https://i.pravatar.cc/100?u=${formData.id}`
+        avatar: `https://i.pravatar.cc/100?u=${formData.id}`,
       },
       destination: formData.destination,
       checkIn: formData.checkIn,
       checkOut: formData.checkOut,
       guests: formData.guests,
       amount: formData.amount,
-      status: formData.status
+      status: formData.status,
     });
   }
   showFormSheet.value = false;
@@ -118,7 +118,9 @@ function handleDelete(booking: any) {
 
 function confirmDelete() {
   if (selectedBooking.value) {
-    bookings.value = bookings.value.filter(b => b.id !== selectedBooking.value.id);
+    bookings.value = bookings.value.filter(
+      (b) => b.id !== selectedBooking.value.id,
+    );
   }
   showDeleteConfirm.value = false;
   selectedBooking.value = null;
@@ -131,8 +133,8 @@ function confirmDelete() {
     <BookingStats :stats="stats" />
 
     <!-- UI Component: Data Table -->
-    <BookingTable 
-      :bookings="bookings" 
+    <BookingTable
+      :bookings="bookings"
       @add="handleAdd"
       @view="handleView"
       @edit="handleEdit"
@@ -140,19 +142,19 @@ function confirmDelete() {
     />
 
     <!-- UI Component: Forms & Modals -->
-    <BookingFormSheet 
+    <BookingFormSheet
       v-model:open="showFormSheet"
       :initial-data="activeFormData"
       :is-editing="isEditing"
       @submit="handleFormSubmit"
     />
 
-    <BookingDetailDialog 
+    <BookingDetailDialog
       v-model:open="showViewDialog"
       :booking="selectedBooking"
     />
 
-    <BookingDeleteAlert 
+    <BookingDeleteAlert
       v-model:open="showDeleteConfirm"
       :booking="selectedBooking"
       @confirm="confirmDelete"
